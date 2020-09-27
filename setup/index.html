@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Getting Ready for CodeMap | Stanley Nguyen - Software Engineer @ Xendit</title>
+
+    <link rel="stylesheet" href="/dist/reset.css">
+    <link rel="stylesheet" href="/dist/reveal.css">
+    <link rel="stylesheet" href="/dist/theme/blood.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="/plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <h2>Getting Ready for CodeMap</h2>
+                <h3>🧑‍💻👩‍💻👨‍💻</h3>
+                <p><small><a href="https://stanleynguyen.me">Stanley Nguyen</a></small></p>
+                <p><small>Software Engineer @ <a href="https://xendit.co">Xendit</a></small></p>
+            </section>
+            <section>
+                <section data-background-image="/setup/static/matrix.jpg" data-background-opacity=".5">
+                    <h2>Construction of Software</h2>
+                    <p>A journey through the bits</p>
+                    <aside class="notes">
+                        First thing first, I'm gonna take you through a brief tour from the most familiar part of your
+                        digital lives with the like of Facebook, Microsoft Word to the inner workings of computer to get
+                        some basic understandings of how software applications are made and how they operate
+                    </aside>
+                </section>
+                <section>
+                    <img data-src="/setup/static/red-pill.jpg" alt="Take the red pill" />
+                    <aside class="notes">
+                        This trip will reveal to you the best kept secrets to never have to ask your computer science
+                        friends to fix your computer again. Just kidding but I hope that this quick introduction will
+                        change how you guys look at computers, and feel more empowered to be creative with this
+                        wonderful invention
+                    </aside>
+                </section>
+                <section>
+                    <h5>Familiar faces</h5>
+                    <img data-src="/setup/static/apps.png" alt="Computer applications" />
+                    <aside class="notes">
+                        You might be familiar with these consumer applications like facebook, which is developed and
+                        operate on a web platform, or an other that's build and run natively on MacOS, Notes. These
+                        applications differ in their purposes, platforms but they all operate in the same general manner
+                        of communicating in bits with hardwares like the screens to display pixels of colors, or the CPU
+                        to make calculations. And these behaviors are predetermined by their creators whom we call
+                        programmers.
+                    </aside>
+                </section>
+                <section>
+                    <h5>What is programming?</h5>
+                    <img data-src="/setup/static/programming.png" alt="What is programming?" />
+                    <aside class="notes">
+                        So what exactly is programming. To answer you in a single short sentence, programming, or the
+                        job of programmers includes, communicating instructions to a computer to carry out useful tasks.
+                        Now you understand why programmers are often quiet, because we have been "talking" all day to
+                        our computers.
+                    </aside>
+                </section>
+                <section>
+                    <p>buy milk, if there're eggs, get a dozen</p>
+                    <img data-src="/setup/static/supermarket-robot.jpg" alt="Robot buying groceries" height=400 />
+                    <aside class="notes">
+                        It's the exact same thing as telling someone to help you "go buy some grocery", just that
+                        computers are scarily precise when it comes to instructions and make no assumption. You can tell
+                        a person to "go buy milk and if there's eggs get a dozen" and the person will come back with a
+                        bottle of milk and a dozen of eggs but a computer will come back with a dozen of milk bottles.
+                        You will know why when you learn about conditional statements later in our course
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>talking to computers</h1>
+                    <p>but how?</p>
+                    <aside class="notes">
+                        Now that we know "communications" need to take place, but how do we communicate with computer,
+                        what does it speaks in?
+                    </aside>
+                </section>
+                <section>
+                    <h5>The "natural" language of computers</h5>
+                    <img data-src="/setup/static/binary.jpg" alt="0 and 1 binary" />
+                    <aside class="notes">
+                        The natural language of computers are actually binary, the legendary 0 and 1 that everyone talks
+                        about. Well I don't know about you but that doesn't seem like very effective communication to
+                        me. At least for me, I would rather not speak in 0 and 1 unless I absolutely have to
+                    </aside>
+                </section>
+                <section>
+                    <h5>Our everyday Mac</h5>
+                    <img data-src="/setup/static/mac.jpeg" alt="Mac desktop" height="500" />
+                    <aside class="notes">
+                        Let's dial back a bit to more relatable stuffs, like this Mac desktop computers with all the
+                        nice graphical user interface so you can nicely click around with your mouse and use
+                        applications with equally nice UI
+                    </aside>
+                </section>
+                <section>
+                    <h5>First ever personal computer</h5>
+                    <img data-src="/setup/static/first-pc.jpg" alt="First personal computer" />
+                    <aside class="notes">
+                        But have you seen this first ever personal computer? For those who work closely with
+                        programmers, does this looks eerily familiar to you? People in the seventies have to deal with
+                        this dreaded text-based interface and a hundres-of-pages-long manual. We have come a long way
+                        from this rudimentary setup to today, bringing personal computers to an essential and common
+                        place in our day-to-day life
+                    </aside>
+                </section>
+                <section>
+                    <h5>The revolution in how we talk to computers</h5>
+                    <img data-src="/setup/static/revolution.png" alt="Programming revolution" />
+                    <aside class="notes">
+                        In parallel with our personal computer, there's another revolution that ran behind the scence,
+                        transforming how we talk to computers.
+                    </aside>
+                </section>
+                <section>
+                    <h5>Punchcard of the 70s</h5>
+                    <img data-src="/setup/static/punchcard.jpg" alt="Punchcard" />
+                    <aside class="notes">
+                        We used to talk to computer literally in 0s and 1s with these punch cards. Having taken a look
+                        at his, programming nowadays definitely looks much much less daunting isn't it?
+                    </aside>
+                </section>
+                <section>
+                    <h5>Modern-day source code</h5>
+                    <img data-src="/setup/static/python-source.gif" alt="Python source code" />
+                    <aside class="notes">
+                        We have abstracted our way all the way to a very nice syntax of modern day programming languages
+                        like Python whose source code is super close to the English speaking language. Together with
+                        this advancement is also the open doors to include many many more people to be creators, to
+                        build on what their predecessors have done. And that's the power of software engineering or
+                        engineering and applied science in general - being able to build upon a solid foundation of
+                        someone else's work
+                    </aside>
+                </section>
+                <section>
+                    <img data-src="/setup/static/pyramid.png" alt="Pyramid diagram of languages" />
+                    <aside class="notes">
+                        Now let's regroup what we have discussed and put them in a hierachy. It's pretty straightforward
+                        from this diagram we're aiming to learn to work in the ever expanding middle region of the
+                        pyramid. We will be working primarily in text, and learn how to express our ideas and intentions
+                        in this format. It's not much of a difference from other subjects we took in school aint it?
+                    </aside>
+                </section>
+                <section>
+                    <img data-src="/setup/static/mysterious-translator.png"
+                        alt="Mysterious computer language translator" />
+                    <aside class="notes">
+                        The middle region is also where things got interesting, because this language is not something
+                        the computers can understand directly as we learnt that computers can only understand binary
+                        signals, 0s and 1s. Hence, there must be something that sits in the middle to facilitate all
+                        this
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1 style="word-wrap: normal;">Translators</h1>
+                    <aside class="notes">
+                        Enter translators. They help turning high-level, human-readable block of text we call source
+                        code into 0s and 1s for computers to understands. The results of that process are called
+                        binaries. To give some very common examples, native desktop applications like Google Chrome, or
+                        Notepad are the manifestations of these binaries that we can execute and use without a slight
+                        thought of how our computers get all these done
+                    </aside>
+                </section>
+                <section style="text-align: left;">
+                    <h3>3 types of high-level translators:</h3>
+                    <ul>
+                        <li>Interpreters</li>
+                        <li>Compilers</li>
+                        <li>Hybrid</li>
+                    </ul>
+                    <aside class="notes">
+                        There are 3 types of high-level computer translators called intepreters, compilers, and hybrid
+                        between both interpreters and compilers.
+                    </aside>
+                </section>
+                <section>
+                    <h2>intepreters</h2>
+                    <img data-src="/setup/static/interpreter.png" alt="Python interpreter" />
+                    <aside class="notes">
+                        For certain languages like Python, we have interpreters which process and run our source code
+                        line by line until they encounter an error or the program ends.
+                    </aside>
+                </section>
+                <section data-run-in-terminal="/setup/code/interpreter.py" data-run-in-terminal-bin="python">
+                    <h4>Running the whole source code</h4>
+                    <aside class="notes">
+                        When using intepreters, passing the whole source code file to the intepreter, which in this case
+                        print out 3 different lines of text ...
+                    </aside>
+                </section>
+                <section>
+                    <h4>Passing every single line of code to the interpreter</h4>
+                    <video data-autoplay src="/setup/static/interpreter.mov"></video>
+                    <aside class="notes">
+                        ... is exactly the same as firing up the interpreter and pass in every single line of code for
+                        it to translate and instructor the computer what to do. Fun fact, interpreters are also computer
+                        programmes, or speaking in what we just learnt from the previous section - binaries, that are
+                        the product of compilers translating source codes.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Compliers</h2>
+                    <img data-src="/setup/static/compiler.png" alt="Golang compiler" />
+                    <aside class="notes">
+                        Unlike interpreters, compilers gives instructions to our computers in a 2-step process. First,
+                        it will translate source code into binary programs. The computer then can understand and execute
+                        these binary standalone without any help from the translator. Ever wonder why as a computer
+                        user, you don't have to install all the same tools as application developers to use your app?
+                        This is why
+                    </aside>
+                </section>
+                <section>
+                    <h4>Go compiler in action</h4>
+                    <pre><code class="hljs" data-trim data-line-numbers="1,2,3,4,5,6">
+                        package main
+                        func main() {
+                            println("Hello")
+                            println("Is it me?")
+                            println("You looking for")
+                        }
+                    </code></pre>
+                    <aside class="notes">
+                        Here I have the same example program as the python one from previous section in Go
+                    </aside>
+                </section>
+                <section>
+                    <h4>Go compiler in action</h4>
+                    <video data-autoplay src="/setup/static/compiler.mov"></video>
+                    <aside class="notes">
+                        Now let's have a look at how the Go language compiler translate the source code into a binary
+                        and how the binary execute against my computer
+                    </aside>
+                </section>
+                <section>
+                    <h2>Hybrid</h2>
+                    <img data-src="/setup/static/hybrid.png" alt="Hybrid compilation model" />
+                    <aside class="notes">
+                        Last but not least, we have our hybrid compilation model, that adds an extra step from when
+                        source code is parsed to when instructions are carried out by the computers. This model also
+                        introduces an extra actor in the translation process to go from bytecodes to binary
+                        instructions. This helps the bytecode becomes platform-agnostic as compared to our binaries from
+                        the previous direct compilation model
+                    </aside>
+                </section>
+                <section>
+                    <h4>Hybrid in action</h4>
+                    <video data-autoplay src="/setup/static/hybrid.mov" />
+                    <aside class="notes">
+                        We can see that first the java compiler will compile Hybrid.java source code into a bytecode
+                        file. This bytecode file can then be executed by the java virtual machine and give the same
+                        exact instructions as our previous 2 example programs
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Gearing up</h1>
+                    <aside class="notes">
+                        After our deep diving in an attempt to make software look all less unicorn and magical, let's
+                        get
+                        back on track to prepare for our exciting modules ahead
+                    </aside>
+                </section>
+                <section>
+                    <h3>Class venue</h3>
+                    <img data-src="/setup/static/zoom.jpg" alt="Zoom video calling" />
+                    <aside class="notes">
+                        All of our lessons will be taking place online as we are already doing it. The reason we insist
+                        on online lessons as nowadays more and more companies are moving away from a physical in-office
+                        culture to a remote-friendly one and these lessons can serve as a good practicing ground
+                    </aside>
+                </section>
+                <section>
+                    <h3>VSCode</h3>
+                    <p><a href="https://code.visualstudio.com/">code.visualstudio.com</a></p>
+                    <img data-src="/setup/static/vscode.png" alt="VS Code" />
+                    <aside class="notes">
+                        As we have learnt and demistified source code files to actually be just text files with special
+                        grammar based on what types of code like python or Go or Java, we will need a specialised text
+                        editor for writing these effectively. VS Code is our recommended go-to choice as it's free and
+                        comes with a very very diverse and well-maintained ecosystem of plugins for all kinds of needs
+                        that might arise
+                    </aside>
+                </section>
+                <section>
+                    <h3>VS Code Liveshare</h3>
+                    <p><a
+                            href="https://visualstudio.microsoft.com/services/live-share/">visualstudio.microsoft.com/services/live-share</a>
+                    </p>
+                    <img data-src="/setup/static/liveshare.gif" alt="VS Code Liveshare" />
+                    <aside class="notes">
+                        Last but not least, there must be a way for us to work together on the same source code file to
+                        teach and to learn more effectively through praciting. Enter liveshare, it's a VS Code plugin
+                        that let me step in and pair program with you guys whenever help is needed.
+                    </aside>
+                </section>
+                <section>
+                    <h3>Let's rock and roll!</h3>
+                    <img data-src="/setup/static/rnr.gif" alt="Rock and roll bear" />
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="/dist/reveal.js"></script>
+    <script src="/plugin/zoom/zoom.js"></script>
+    <script src="/plugin/notes/notes.js"></script>
+    <script src="/plugin/search/search.js"></script>
+    <script src="/plugin/markdown/markdown.js"></script>
+    <script src="/plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [
+                RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight,
+            ],
+            dependencies: [
+                {
+                    src: '/plugin/reveal-run-in-terminal.js',
+                    callback: function () { RunInTerminal.init({ publicPath: './asyncjs/' }); },
+                    async: true
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>
