@@ -2,6 +2,8 @@
 
 Self-learning roadmap and materials for programming beginners to pick up fundamental concepts of programming through Python practices.
 
+Join our learning community over at [CodeMap Facebook Group](https://www.facebook.com/groups/codemap)!
+
 **Notes**: Most of the materials deal with fundamentals which are universal across programming languages and we try to keep our content that way. However at times, we will need to learn about and use features that are specific to the medium-for-learning language Python. These language specifics points will be marked with ![#ff0000](https://placehold.it/15/FF0000)
 
 ## Pre-requisite
