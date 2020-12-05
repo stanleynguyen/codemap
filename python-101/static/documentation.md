@@ -16,6 +16,7 @@ After pressing shift + enter, the cell is run, and the next cell is selected. No
 
 Now, some code is written in the second cell that references some variables created in the first cell. This cell can then be run, as shown below.
 ![Run second cell](./documentation_images/003.png "After running second cell")
+
 To add a new cell above the current one, have your cursor selecting the whole cell by pressing escape, then press the 'a' key. To add a new cell below, press 'b' instead after selecting the whole cell. 
 
 ![restart kernel](./documentation_images/004.png "Session will be refreshed when this button is pressed")
