@@ -1,4 +1,4 @@
-* Jupyter Notebooks
+# Jupyter Notebooks
 
 Visual Studio code (VSCode) is an IDE - Integrated Development Environment - to write computer code (it supports various programming languages other than Python as well).
 
@@ -30,7 +30,7 @@ There are some shortcut buttons on the top. Rollover to discover what they do. W
 
 If I try to run the second cell *without running the first* after hitting refresh, I will get an error because the kernel does not know the variables a and b. 
 
-* Exercises notebook
+# Exercises notebook
 
 This notebook file exercises.ipynb comes with an accompanying Python file solutions.py. Save these two files in the same folder, and open exercises.ipynb with VSCode. 
 
