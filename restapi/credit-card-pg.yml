@@ -1,0 +1,388 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Credit Card Payment Gateway API
+  description: 'Example API interface of a credit card payment API'
+servers:
+  - description: Production Credit Card Payment Gateway
+    url: https://api.ccpaymentgateway.com
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/stanleynguyen/credit-card-gateway-api/1.0.0
+
+paths:
+  /tokens:
+    post:
+      summary: Create credit card token
+      operationId: createToken
+      tags:
+        - tokens
+      parameters:
+        - name: api_key
+          in: header
+          required: true
+          description: Merchant's public API key
+          schema:
+            type: string
+          example: 'pk_test_7yD39HqL6fdgkarjtT1zdejh4'
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              required:
+                - card_number
+                - cvv
+                - expiry_date
+              properties:
+                card_number:
+                  type: string
+                  minLength: 8
+                  maxLength: 19
+                  example: '4284656932842940'
+                cvv:
+                  type: string
+                  minLength: 3
+                  maxLength: 3
+                  example: '111'
+                expiry_date:
+                  type: string
+                  example: '05/25'
+      responses:
+        200:
+          description: Successfully created a token
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - token
+                  - masked_card_number
+                properties:
+                  token:
+                    type: string
+                    example: '586f0ba2ab70de5d2b409e0d'
+                  masked_card_number:
+                    type: string
+                    example: '400000XXXXXX0002'
+        400:
+          description: Tokenization error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'Card details are invalid'
+                  error_code:
+                    type: string
+                    example: 'TOKENIZATION_ERROR'
+        500:
+          description: Server error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'There is something wrong with our server. Please try again later'
+                  error_code:
+                    type: string
+                    example: 'SERVER_ERROR'
+
+  /charges:
+    post:
+      summary: Create a charge on the tokenised card details
+      operationId: createCharge
+      tags:
+        - charges
+      parameters:
+        - name: api_key
+          in: header
+          required: true
+          description: Merchant's secret API key
+          schema:
+            type: string
+            example: 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              type: object
+              required:
+                - amount
+                - token
+                - currency
+              properties:
+                amount:
+                  type: number
+                  example: 10
+                currency:
+                  type: string
+                  format: 'ISO 4217'
+                  example: 'USD'
+      responses:
+        200:
+          description: Successfully create charge
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ChargeObject'
+        400:
+          description: Invalid charge
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - error_code
+                  - message
+                properties:
+                  error_code:
+                    type: string
+                    enum:
+                      - TOKEN_ALREADY_USED
+                      - NOT_ENOUGH_FUND
+                      - AMOUNT_ABOVE_MAXIMUM_LIMIT
+                    example: 'NOT_ENOUGH_FUND'
+        500:
+          description: Server error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'There is something wrong with our server. Please try again later'
+                  error_code:
+                    type: string
+                    example: 'SERVER_ERROR'
+    get:
+      summary: Get list of existing charges
+      operationId: getCharges
+      tags:
+        - charges
+      parameters:
+        - name: api_key
+          in: header
+          required: true
+          description: Merchant's secret API key
+          schema:
+            type: string
+            example: 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+        - name: sort_by
+          in: query
+          description: Field to sort charges by
+          schema:
+            type: string
+            enum:
+              - created_at
+              - amount
+              - currency
+            example: created_at
+        - name: limit
+          in: query
+          description: Specify the number of charges to query for
+          schema:
+            type: number
+            minimum: 10
+            maximum: 100
+            example: 10
+        - name: after_id
+          in: query
+          description: Specify charge ID to start query from
+          schema:
+            type: string
+            example: '586f0ba2ab70de5d2b409e0d'
+      responses:
+        200:
+          description: Successfully retrieve the list of charges
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChargeObject'
+        500:
+          description: Server error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'There is something wrong with our server. Please try again later'
+                  error_code:
+                    type: string
+                    example: 'SERVER_ERROR'
+
+  /charges/{charge_id}:
+    get:
+      summary: Get information about a charge
+      operationId: getChargeById
+      tags:
+        - charges
+      parameters:
+        - name: api_key
+          in: header
+          required: true
+          description: Merchant's secret API key
+          schema:
+            type: string
+            example: 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+        - name: charge_id
+          in: path
+          required: true
+          description: ID of the specific charge
+          schema:
+            type: string
+            example: '5850e55d8d9791bd40096364'
+      responses:
+        200:
+          description: Successfully retrieve the charge
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/ChargeObject'
+        404:
+          description: Charge not found
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'Charge not found'
+                  error_code:
+                    type: string
+                    example: 'NOT_FOUND'
+        500:
+          description: Server error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'There is something wrong with our server. Please try again later'
+                  error_code:
+                    type: string
+                    example: 'SERVER_ERROR'
+  /charges/{charge_id}/refund:
+    post:
+      summary: Refund created charge
+      operationId: refundCharge
+      tags:
+        - charges
+      parameters:
+        - name: charge_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: '5850e55d8d9791bd40096364'
+        - name: api_key
+          in: header
+          required: true
+          schema:
+            type: string
+            example: 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+      responses:
+        200:
+          description: Successfully refund a charge
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/ChargeObject'
+                  - type: object
+                    required:
+                      - fee_refund_amount
+                    properties:
+                      fee_refund_amount:
+                        type: number
+                        example: 1.5
+        404:
+          description: Charge not found
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - error_code
+                  - message
+                properties:
+                  message:
+                    type: string
+                    example: 'Charge not found'
+                  error_code:
+                    type: string
+                    example: 'NOT_FOUND'
+        500:
+          description: Server error
+          content:
+            'application/json':
+              schema:
+                type: object
+                required:
+                  - message
+                  - error_code
+                properties:
+                  message:
+                    type: string
+                    example: 'There is something wrong with our server. Please try again later'
+                  error_code:
+                    type: string
+                    example: 'SERVER_ERROR'
+
+components:
+  schemas:
+    ChargeObject:
+      type: object
+      required:
+        - charge_id
+        - masked_card_number
+        - amount
+        - currency
+        - created_at
+      properties:
+        charge_id:
+          type: string
+          example: '5850e55d8d9791bd40096364'
+        masked_card_number:
+          type: string
+          example: '400000XXXXXX0002'
+        amount:
+          type: number
+          example: 10
+        currency:
+          type: string
+          example: 'USD'
+        created_at:
+          type: string
+          format: date-time
+          example: '2020-11-11T11:11:11Z'
